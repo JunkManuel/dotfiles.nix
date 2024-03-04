@@ -9,7 +9,7 @@ in {
         programs.git = {
             enable = true;
             userName = "KiraManolo.LENOVO-NIX";
-            userEmail = "ramavillasenin@gmail.com";
+            userEmail = "21977499+JunkManuel@users.noreply.github.com";
             extraConfig = {
                 init = { defaultBranch = "master"; };
                 core = {

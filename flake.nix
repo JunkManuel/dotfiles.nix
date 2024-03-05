@@ -12,6 +12,8 @@
         nur = {
             url = "github:nix-community/NUR";
         };
+
+        hyprland.url = "github:hyprwm/Hyprland";
     };
 
     outputs = { home-manager, nixpkgs, nur, ... }@inputs:

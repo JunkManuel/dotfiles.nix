@@ -9,6 +9,12 @@ in {
         programs.ssh = {
             enable = true;
             addKeysToAgent = "yes";
+            extraConfig = ''
+                Host gitJunkManuel
+                    Hostname            github.com
+                    IdentityFile        ~/.ssh/id_ed25519_githubMain
+                    IdentitiesOnly      yes
+                '';
         };
     };
 }

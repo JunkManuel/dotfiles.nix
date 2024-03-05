@@ -3,12 +3,10 @@
 {
     home.stateVersion = "23.11";
     imports = [
-        ./gui
-
-        ./cli
-        
-        ./userconf
-
-        ./packages
+        ./nvim
+        ./zsh
+        ./gpg
+        ./git
+        ./direnv
     ];
 }

@@ -20,8 +20,8 @@ in {
             git python3 lua zig 
             mpv firefox pqiv
             screen bandw maintenance
-            wf-recorder anki-bin jq
-            f3
+            wf-recorder anki-bin
+            jq f3 remmina
         ];
     };
 }

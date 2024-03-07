@@ -10,7 +10,7 @@
         enable = true;
         package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     };
-    vitualisation.docker.enable = true;
+    virtualisation.docker.enable = true;
 
     # Laptop-specific packages (the other ones are installed in `packages.nix`)
     environment.systemPackages = with pkgs; [

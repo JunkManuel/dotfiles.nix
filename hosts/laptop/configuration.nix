@@ -10,6 +10,7 @@
         enable = true;
         package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     };
+    vitualisation.docker.enable = true;
 
     # Laptop-specific packages (the other ones are installed in `packages.nix`)
     environment.systemPackages = with pkgs; [
@@ -113,7 +114,7 @@
     # Set up user and enable sudo
     users.users.kiramanolo = {
         isNormalUser = true;
-        extraGroups = [ "input" "wheel" ];
+        extraGroups = [ "input" "wheel" "docker" ];
         shell = pkgs.zsh;
     };
 

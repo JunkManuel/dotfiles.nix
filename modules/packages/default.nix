@@ -22,6 +22,7 @@ in {
             screen bandw maintenance
             wf-recorder anki-bin
             jq f3 remmina
+            qbittorrent mullvad-vpn mullvad-closest
         ];
     };
 }

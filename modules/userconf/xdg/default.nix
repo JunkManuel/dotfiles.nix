@@ -17,5 +17,15 @@ in {
             publicShare = "$HOME/stuff/other/";
             templates = "$HOME/stuff/other/";
         };
+        xdg.desktopEntries = {
+            "org.codeberg.dnkl.foot" = {
+                name = "Foot";
+                noDisplay = true;
+            };
+            "org.codeberg.dnkl.foot-server" = {
+                name = "Foot Server";
+                noDisplay = true;
+            };
+        };
     };
 }

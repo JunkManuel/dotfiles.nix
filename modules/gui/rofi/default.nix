@@ -11,9 +11,21 @@ in {
             package = pkgs.rofi-wayland;
 
             cycle = true;
-            font = "JetBrainsMono 16p";
+            font = "JetBrainsMono 16";
             location = "center";
-            terminal = "\${pkgs.foot}/bin/foot";
+            terminal = "/etc/profiles/per-user/kiramanolo/bin/foot";
+            theme = "fancy";
+
+            extraConfig = {
+                modes = "window,drun,ssh";
+                show-icons = true;
+
+                display-window = " ";
+                display-run = " ";
+                display-ssh = "󰣀 ";
+                display-drun = " ";
+                icon-theme = "Moka";
+            };
 
             pass = {
                 enable = true;

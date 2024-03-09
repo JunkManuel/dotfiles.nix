@@ -16,7 +16,7 @@ configuration {
 }
 
 /* ---- Load pywal colors ---- */
-@theme "~/.cache/wal/colors-rofi-dark.rasi"
+@theme "~/.cache/wallust/colors-rofi.rasi"
 
 /* ---- Global Properties ---- */
 * {
@@ -67,7 +67,7 @@ inputbar {
     border-radius:               25px;
     orientation:                 horizontal;
     children:                    ["entry", "dummy", "mode-switcher" ];
-    background-image:            url("~/.config/rofi/.current_wallpaper", width);
+    background-image:            @wallpaper;
 }
 
 /* ---- Entry input ---- */

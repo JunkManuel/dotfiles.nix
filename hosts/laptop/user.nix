@@ -12,6 +12,7 @@
         rofi.enable         = true;
         eww.enable          = true;
         dunst.enable        = true;
+        wallust.enable      = true;
 
         #cli
         zsh.enable          = true;

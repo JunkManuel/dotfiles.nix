@@ -7,7 +7,7 @@ in {
     options.modules.hyprland= { enable = mkEnableOption "hyprland"; };
     config = mkIf cfg.enable {
 	    home.packages = with pkgs; [
-	        rofi-wayland hyprpaper wlsunset wl-clipboard pywal wallust # hyprland
+	        rofi-wayland hyprpaper wlsunset wl-clipboard # hyprland
 	    ];
         gtk.iconTheme.package = pkgs.moka-icon-theme;
 

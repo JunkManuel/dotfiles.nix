@@ -10,5 +10,6 @@
         ./rofi
         ./dunst
         ./eww
+        ./wallust
     ];
 }

@@ -14,6 +14,10 @@ in {
                     Hostname            github.com
                     IdentityFile        ~/.ssh/id_ed25519_githubMain
                     IdentitiesOnly      yes
+                Host kiramanolo.ddns.net
+                    Hostname            kiramanolo.ddns.net
+                    IdentityFile        ~/.ssh/id_ed25519_oracle
+                    IdentitiesOnly      yes
                 '';
         };
     };

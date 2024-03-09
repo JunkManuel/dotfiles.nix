@@ -1,7 +1,7 @@
 import = ["~/.cache/wallust/colors-alacritty.toml"]
 
 [window]
-dinamic_padding = true
+dynamic_padding = true
 
 [font]
 normal = { family = "JetBrainsMono Nerdfont", style = "Regular"}

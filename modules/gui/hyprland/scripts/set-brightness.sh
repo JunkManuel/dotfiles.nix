@@ -18,5 +18,5 @@ dunstify -a "setbrightness" \
     -u low\
     -i display-brightness-symbolic\
     -h int:value:"$brightness"\
+    -h string:x-dunst-stack-tag:$msgTag\
     "Brightness: ${brightness}%"
-# -h string:x-dunst-stack-tag:$msgTag\

@@ -1,15 +1,19 @@
-#!/bin/bash
+#!/bin/sh
 scriptsDir="$HOME/.config/hypr/scripts"
 
 # WALLPAPERS PATH
-wallDIR="$HOME/wallpapers"
+wallDIR="$NIXOS_CONFIG_DIR/pics"
 
 # Transition config
-FPS=60
-TYPE="random"
-DURATION=2
-SWWW_PARAMS="--transition-fps $FPS --transition-type $TYPE --transition-duration $DURATION"
-WAL_FLAGS="--saturate 0.85 --backend colorz --cols16 -nteq"
+# FPS=60
+# TYPE="random"
+# DURATION=2
+# SWWW_PARAMS="--transition-fps $FPS --transition-type $TYPE --transition-duration $DURATION"
+# WAL_FLAGS="--saturate 0.85 --backend colorz --cols16 -nteq"
+hypaper() {
+    hyprctl hyprpaper preload "$1"
+    hyprctl hyprpaper wallpaper "eDP-1,$1"
+}
 
 # Check if swaybg is running
 if pidof swaybg > /dev/null; then
@@ -27,14 +31,16 @@ rofi_command="rofi -show -dmenu -theme $HOME/.config/rofi/themes/wallpaper-selec
 
 refresh() {
 		# Refreshes waybar
-		~/.local/bin/bar
+		# ~/.local/bin/bar
 
 		# restart dunst
-		systemctl --user restart dunst
+		# systemctl --user restart dunst
+        pkill dunst
+        dunst &
 
 		# Update wallpaper on rofi configs
-		rm ~/.config/rofi/.current_wallpaper && \
-				ln -rs $(/usr/bin/cat ~/.cache/wal/wal) ~/.config/rofi/.current_wallpaper
+		# rm ~/.config/rofi/.current_wallpaper && \
+		# 		ln -rs $(/usr/bin/cat ~/.cache/wal/wal) ~/.config/rofi/.current_wallpaper
 }
 
 menu() {
@@ -50,7 +56,15 @@ menu() {
   printf "$RANDOM_PIC_NAME\n"
 }
 
-swww query || swww init
+# swww query || swww init
+
+run() {
+    hypaper "${wallDIR}/${PICS[$pic_index]}"
+    # wal $WAL_FLAGS -i "${wallDIR}/${PICS[$pic_index]}"
+    wallust run -s "${wallDIR}/${PICS[$pic_index]}"
+	sleep 0.5
+	refresh
+}
 
 main() {
   choice=$(menu | ${rofi_command})
@@ -62,10 +76,11 @@ main() {
 
   # Random choice case
   if [ "$choice" = "$RANDOM_PIC_NAME" ]; then
-    swww img "${wallDIR}/${RANDOM_PIC}" $SWWW_PARAMS
-    wal $WAL_FLAGS -i "${wallDIR}/${RANDOM_PIC}"
-	sleep 0.5
-	refresh
+    # swww img "${wallDIR}/${RANDOM_PIC}" $SWWW_PARAMS
+    # # wal $WAL_FLAGS -i "${wallDIR}/${RANDOM_PIC}"
+    # sleep 0.5
+    # refresh
+    run
     exit 0
   fi
 
@@ -80,10 +95,12 @@ main() {
   done
 
   if [[ $pic_index -ne -1 ]]; then
-    swww img "${wallDIR}/${PICS[$pic_index]}" $SWWW_PARAMS
-    wal $WAL_FLAGS -i "${wallDIR}/${PICS[$pic_index]}"
-	sleep 0.5
-	refresh
+    # hypaper "${wallDIR}/${PICS[$pic_index]}"
+    # # wal $WAL_FLAGS -i "${wallDIR}/${PICS[$pic_index]}"
+    # wallust run "${wallDIR}/${PICS[$pic_index]}"
+    # sleep 0.5
+    # refresh
+    run
   else
     echo "Image not found."
     exit 1

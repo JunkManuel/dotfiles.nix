@@ -17,5 +17,5 @@ dunstify -a "changeVolume"\
     -u low\
     -i audio-volume-high\
     -h int:value:"$volume"\
+    -h string:x-dunst-stack-tag:$msgTag\
     "Volume: ${volume}%"
-# -h string:x-dunst-stack-tag:$msgTag\

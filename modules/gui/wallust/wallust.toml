@@ -100,6 +100,15 @@ rofi.src = 'templates/colors-rofi.rasi'
 rofi.dst = '~/.cache/wallust/colors-rofi.rasi'
 rofi.new_engine = true
 
+# foot
+foot.src = 'templates/colors-foot.ini'
+foot.dst = '~/.config/foot/foot.ini'
+foot.new_engine = true
+
+# alacritty
+alacritty.src = 'templates/colors-alacritty.toml'
+alacritty.dst = '~/.cache/wallust/colors-alacritty.toml'
+
 # REMINDER Variables and methods that can be used with templating:
 #  wallpaper:  The full path to the current wallpaper, colorscheme file or the name of the theme in use.
 #  backend:    Current **backend** being used.

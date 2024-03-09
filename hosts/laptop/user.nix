@@ -8,7 +8,8 @@
         librewolf.enable    = true;
         firefox.enable      = true;
         hyprland.enable     = true;
-        foot.enable         = true;
+        foot.enable         = false;
+        alacritty.enable    = true;
         rofi.enable         = true;
         eww.enable          = true;
         dunst.enable        = true;

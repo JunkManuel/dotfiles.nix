@@ -7,6 +7,7 @@
         ./firefox
         ./hyprland
         ./foot
+        ./alacritty
         ./rofi
         ./dunst
         ./eww

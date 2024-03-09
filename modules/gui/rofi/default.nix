@@ -17,7 +17,7 @@ in {
             cycle = true;
             font = "JetBrainsMono 12";
             location = "center";
-            terminal = "/etc/profiles/per-user/kiramanolo/bin/foot";
+            terminal = "/etc/profiles/per-user/kiramanolo/bin/alacritty";
             theme = "/home/kiramanolo/.config/rofi/themes/nova-dark.rasi";
 
             extraConfig = {

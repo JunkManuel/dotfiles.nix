@@ -34,9 +34,9 @@ refresh() {
 		# ~/.local/bin/bar
 
 		# restart dunst
-		# systemctl --user restart dunst
-        pkill dunst
-        dunst &
+		systemctl --user restart dunst
+        # pkill dunst
+        # dunst &
 
 		# Update wallpaper on rofi configs
 		# rm ~/.config/rofi/.current_wallpaper && \

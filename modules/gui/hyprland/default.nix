@@ -19,6 +19,7 @@ in {
             ".config/hypr/hyprpaper.conf".source = ./hyprpaper.conf;
             ".config/hypr/scripts" = {
                 source = ./scripts;
+                onChange = "hyprctl reload";
                 recursive = true;
                 executable = true;
             };

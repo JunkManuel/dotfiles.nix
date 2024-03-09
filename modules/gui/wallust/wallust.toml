@@ -109,6 +109,10 @@ foot.new_engine = true
 alacritty.src = 'templates/colors-alacritty.toml'
 alacritty.dst = '~/.cache/wallust/colors-alacritty.toml'
 
+# hypr
+hypr.src = 'templates/colors-hyprland.conf'
+hypr.dst = '~/.cache/wallust/colors-hyprland.conf'
+
 # REMINDER Variables and methods that can be used with templating:
 #  wallpaper:  The full path to the current wallpaper, colorscheme file or the name of the theme in use.
 #  backend:    Current **backend** being used.

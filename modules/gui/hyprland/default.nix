@@ -11,7 +11,14 @@ in {
 	    ];
         gtk.iconTheme.package = pkgs.moka-icon-theme;
 
-        home.file.".config/hypr/hyprland.conf".source = ./hyprland.conf;
-        home.file.".config/hypr/hyprpaper.conf".source = ./hyprpaper.conf;
+        home.file = {
+            ".config/hypr/hyprland.conf".source = ./hyprland.conf;
+            ".config/hypr/hyprpaper.conf".source = ./hyprpaper.conf;
+            ".config/hypr/scripts" = {
+                source = ./scripts;
+                recursive = true;
+                executable = true;
+            };
+        };
     };
 }

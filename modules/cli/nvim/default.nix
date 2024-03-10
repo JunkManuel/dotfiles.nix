@@ -35,6 +35,7 @@ in {
         programs.zsh = {
             initExtra = ''
                 export EDITOR="nvim"
+                export VISUAL="nvim"
             '';
 
             shellAliases = {

@@ -51,7 +51,7 @@
     # Nix settings, auto cleanup and enable flakes
     nix = {
         settings = {
-            auto-optimise-store = true;
+            # auto-optimise-store = true;
             allowed-users = [ "kiramanolo" ];
 
             substituters = ["https://hyprland.cachix.org"];
@@ -68,6 +68,10 @@
             keep-derivations = true
         '';
     };
+
+    nixpkgs.config.permittedInsecurePackages = [
+        "nix-2.15.3"
+    ];
 
     # Boot settings: clean /tmp/, latest kernel and enable bootloader
     boot = {

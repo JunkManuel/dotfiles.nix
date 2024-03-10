@@ -1,65 +1,61 @@
 (defwidget bar0 []
-(box :class "bar"
-  (centerbox :orientation "h"
-    (workspaces0)
-    (clock)
-    (sidestuff)))
-)
-
-(defwidget bar1 []
-(box :class "bar"
-  (centerbox :orientation "h"
-    (workspaces1)
-    (clock)
-    (sidestuff)))
+    (box :class "bar"
+        (centerbox :orientation "h"
+            (workspaces)
+            (clock)
+            (sidestuff)
+        )
+    )
 )
 
 (defwidget sidestuff []
-  (box :class "sidestuff" :orientation "h" :space-evenly false :halign "end"
-   (updates)
-   (scratchpad-indicator)
-   (language)
-   (idleinhibit)
-   (bright)
-   (audio)
-   (net)
-   (battery)
-    ))
+    (box :class "sidestuff" :orientation "h" :space-evenly false :halign "end"
+        (scratchpad-indicator)
+        (language)
+        (idleinhibit)
+        (bright)
+        (audio)
+        (net)
+        (battery)
+    )
+)
 
-(deflisten workspace0
-  "scripts/workspace.sh 0")
+(deflisten workspace 
+    "scripts/workspace.sh"
+)
 
-(defwidget workspaces0 []
-  (literal :content workspace0))
-
-(deflisten workspace1
-  "scripts/workspace.sh 1")
-
-(defwidget workspaces1 []
-  (literal :content workspace1))
+(defwidget workspaces []
+    (literal :content workspace)
+)
 
 (defwidget language []
-  (box :class "language"
-       :orientation "h"
-       :space-evenly false
-       :halign "end"
-       :spacing 10
-    (button
-        :class ""
-	:onclick "scripts/keyboardlayout.sh toggle"
-        language)
-))
+    (box 
+        :class "language"
+        :orientation "h"
+        :space-evenly false
+        :halign "end"
+        :spacing 10
+        (button
+            :class ""
+	        :onclick "scripts/keyboardlayout.sh toggle"
+                language
+        )
+    )
+)
 
 (defwidget clock []
-  (box :class "clock"
-       :orientation "h"
-       :space-evenly false
-       :halign "center"
-    (button
-        :class ""
-	:onclick "scripts/calendar.sh show"
-        date-time)
-))
+    (box 
+        :class "clock"
+        :orientation "h"
+        :space-evenly false
+        :halign "center"
+        (button
+            :class ""
+	        :onclick "scripts/calendar.sh show"
+            date-time
+        )
+    )
+)
 
 (defwidget audio []
   (box :class "audio"
@@ -86,19 +82,6 @@
 	:onclick "scripts/brightnesscontrol down"
 	:onrightclick "scripts/brightnesscontrol up"
         brightness)
-))
-
-(defwidget updates []
-  (box 
-       :class "${matches(arch-updates, '^\s*$')?'paru-empty':'paru'}"
-       :orientation "h"
-       :space-evenly false
-       :halign "end"
-       :spacing 10
-    (button
-        :class ""
-	:onclick "foot bash -c 'paru; ~/.config/eww/scripts/arch-updates.sh Refresh'&"
-        arch-updates)
 ))
 
 (defwidget scratchpad-indicator []
@@ -166,9 +149,6 @@
 
 (defpoll idle :interval "1s"
   "scripts/idleinhibit.sh")
-
-(defpoll arch-updates :interval "600s"
-  "scripts/arch-updates.sh")
 
 (defpoll volume :interval "1s"
   "scripts/volumecontrol")

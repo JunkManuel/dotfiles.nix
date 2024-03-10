@@ -2,7 +2,7 @@
     description = "NixOS conifguration";
 
     inputs = {
-        nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+        nixpkgs.url = "github:nixos/nixpkgs";
 
         home-manager = {
             url = "github:nix-community/home-manager";
@@ -47,7 +47,7 @@
             };
     in {
         nixosConfigurations = {
-            laptop = mkSystem inputs.nixpkgs "x86_64-linux" "laptop";
+            ideapad700 = mkSystem inputs.nixpkgs "x86_64-linux" "ideapad700";
         };
   };
 }

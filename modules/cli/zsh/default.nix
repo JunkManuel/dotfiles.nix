@@ -28,8 +28,12 @@ in {
                 export DIRENV_LOG_FORMAT="";
                 bindkey '^ ' autosuggest-accept
 
-                edir() { tar -cz $1 | age -p > $1.tar.gz.age && rm -rf $1 &>/dev/null && echo "$1 encrypted" }
-                ddir() { age -d $1 | tar -xz && rm -rf $1 &>/dev/null && echo "$1 decrypted" }
+                # edir() { tar -cz $1 | age -p > $1.tar.gz.age && rm -rf $1 &>/dev/null && echo "$1 encrypted" }
+                # ddir() { age -d $1 | tar -xz && rm -rf $1 &>/dev/null && echo "$1 decrypted" }
+
+                edir() { tar -cz $1 | gpg -se > $1.tar.gz.gpg && rm -rf $1 &>/dev/null && echo "$1 encrypted" }
+                ddir() { gpg -d $1 | tar -xz && rm -rf $1 &>/dev/null && echo "$1 decrypted" }
+                rebuild() { sudo nixos-rebuild switch --flake $NIXOS_CONFIG_DIR.\#$1 --fast && notify-send "Rebuild done!"}
             '';
 
             # basically aliases for directories: 
@@ -64,7 +68,7 @@ in {
                 tree = "eza --tree --icons";
 
                 nd = "nix develop -c $SHELL";
-                rebuild = "sudo nixos-rebuild switch --flake $NIXOS_CONFIG_DIR.\\#$1 --fast";
+                # rebuild = "sudo nixos-rebuild switch --flake $NIXOS_CONFIG_DIR.\\#$1 --fast";
             };
 
             # Source all plugins, nix-style

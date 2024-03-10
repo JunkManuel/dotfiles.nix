@@ -35,9 +35,9 @@ in {
                     startup_notification = "false";
                     corner_radius = 8;
 
-                    frame_color = "#44465c";
-                    background = "#303241";
-                    foreground = "#d9e0ee";
+                    # frame_color = "#44465c";
+                    # background = "#303241";
+                    # foreground = "#d9e0ee";
                     timeout = 3;
                 };
             };

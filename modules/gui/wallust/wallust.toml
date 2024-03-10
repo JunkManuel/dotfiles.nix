@@ -96,22 +96,26 @@ alpha = 90
 #alacritty.dst = '~/.config/alacritty/alacritty.toml'
 
 # rofi
-rofi.src = 'templates/colors-rofi.rasi'
+rofi.src = 'templates/rofi.rasi'
 rofi.dst = '~/.cache/wallust/colors-rofi.rasi'
 rofi.new_engine = true
 
 # foot
-foot.src = 'templates/colors-foot.ini'
+foot.src = 'templates/foot.ini'
 foot.dst = '~/.config/foot/foot.ini'
 foot.new_engine = true
 
 # alacritty
-alacritty.src = 'templates/colors-alacritty.toml'
+alacritty.src = 'templates/alacritty.toml'
 alacritty.dst = '~/.cache/wallust/colors-alacritty.toml'
 
 # hypr
-hypr.src = 'templates/colors-hyprland.conf'
+hypr.src = 'templates/hyprland.conf'
 hypr.dst = '~/.cache/wallust/colors-hyprland.conf'
+
+# dunst
+dunst.src = 'templates/dunstrc'
+dunst.dst = '~/.config/dunst/dunstrc.d/20-wallust-colors'
 
 # REMINDER Variables and methods that can be used with templating:
 #  wallpaper:  The full path to the current wallpaper, colorscheme file or the name of the theme in use.

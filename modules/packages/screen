@@ -9,7 +9,7 @@ declare -a options=(
 "Take screenshot"
 )
 
-choice=$(printf '%s\n' "${options[@]}" | wofi --style=$HOME/.config/wofi.css --dmenu -i -p 'Choose script:' 2>/dev/null )
+choice=$(printf '%s\n' "${options[@]}" | rofi --dmenu -i -p 'Choose script:' 2>/dev/null )
 
 if [ "$choice" = "Take screenshot" ]; then 
     geometry=$(slurp)

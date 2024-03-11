@@ -83,6 +83,30 @@ in {
                     config = "lua require('ibl').setup()";
                 }
                 {
+                    plugin = luasnip;
+                }
+                {
+                    plugin = nvim-cmp;
+                    config = ''
+                        luafile ~/.config/nvim/lua/cmp.lua
+                        '';
+                }
+                {
+                    plugin = cmp_luasnip;
+                }
+                {
+                    plugin = cmp-nvim-lsp;
+                }
+                {
+                    plugin = cmp-buffer;
+                }
+                {
+                    plugin = cmp-path;
+                }
+                {
+                    plugin = cmp-cmdline;
+                }
+                {
                     plugin = nvim-lspconfig;
                     config = ''
                         luafile ~/.config/nvim/lua/lsp.lua

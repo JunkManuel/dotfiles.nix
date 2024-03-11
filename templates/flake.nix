@@ -11,6 +11,10 @@
                 path = ./python/python-devel;
                 description = "A basic python package development environment";
             };
+            pscript = {
+                path = ./python/python-scripts;
+                description = "Prepared python scripting environment";
+            };
         } // of-templates.templates;
     };
 }

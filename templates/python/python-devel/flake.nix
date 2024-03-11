@@ -10,18 +10,25 @@
     outputs = { nixpkgs, flake-utils, ... }: flake-utils.lib.eachDefaultSystem (system:
         let
             pkgs = import nixpkgs {
-                inherit system;
+            inherit system;
             };
         in rec {
-            devShell = pkgs.mkShell {
-                name = "python-devel";
-                buildInputs = with pkgs; [
-                    python3
+            devShell = pkgs.mkShell rec {
+                buildInputs = with pkgs; 
+                # let 
+                #     dev-python = pkgs.python3.withPackages
+                #         ( p: with p; [ virtualenv pip wheel setuptools ] );
+                # in [
+                #     dev-python
+                # ];
+                [
+                    python3 python3Packages.pip
                 ];
                 shellHook = ''
-                    export PIP_PREFIX=$(pwd)/_build/pip_packages #Dir where built packages are stored
+                    export PIP_PREFIX=$(pwd)/.build/pip_packages #Dir where built packages are stored
                     export PYTHONPATH="$PIP_PREFIX/${pkgs.python3.sitePackages}:$PYTHONPATH"
                     export PATH="$PIP_PREFIX/bin:$PATH"
+
                     unset SOURCE_DATE_EPOCH
                 '';
             };

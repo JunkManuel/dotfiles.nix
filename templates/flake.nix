@@ -8,7 +8,7 @@
     outputs = { self, of-templates, ... }: {
         templates = {
             python-devel = {
-                path = ./python;
+                path = ./python/python-devel;
                 description = "A basic python package development environment";
             };
         } // of-templates.templates;

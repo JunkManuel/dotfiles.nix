@@ -10,5 +10,5 @@ def random_name(lenght:int = 25):
         random.choice(alphabet) for i in range(lenght)
     )
 
-    log.debug(f"{_random_name.__name__}: {out}")
+    log.debug(f"{random_name.__name__}: {out}")
     return out

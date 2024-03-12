@@ -19,11 +19,16 @@ parser = argparse.ArgumentParser (
     epilog= "Some necesary info for the program"
 )
 
-parser.add_argument(
-    '-v', '--verbose',                  # on/off flag
-    action='store_true'
-)
 
+##################################################
+#########    START of custom args     ############
+##################################################
+
+
+
+##################################################
+##########    END of custom args     #############
+##################################################
 
 group_loglvl = parser.add_mutually_exclusive_group()
 group_loglvl.add_argument(
@@ -60,12 +65,10 @@ logging.basicConfig(
     ],
     level=log_level
 )
-
 log = logging.getLogger(name=__name__)
 
 ##################################################
 ###########     END of Template      #############
 ##################################################
-
 
 

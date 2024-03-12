@@ -1,4 +1,4 @@
-import subprocess,logging
+import subprocess,logging,os
 log = logging.getLogger(name=__name__)
 
 def select(prompt:str, options:list, rofi_args:list = [], fuzzy:bool = True):
@@ -12,9 +12,16 @@ def select(prompt:str, options:list, rofi_args:list = [], fuzzy:bool = True):
     args += [str(arg) for arg in args]
 
     log.debug(f"{args= }")
-    log.debug(f"{options_str= }")
+    log.debug(f"{options= }")
     out = subprocess.run(
-        args, input=options_str, stdout=subprocess.PIPE, universal_newlines=True
+        args, input=options_str, universal_newlines=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE
+    )
+    tee = subprocess.run(
+            ["tee", f"{os.path.dirname(os.path.realpath(__file__))}/../../.logs/{__name__}.log"],
+            universal_newlines=True,
+            input= out.stderr,
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL
     )
 
     returncode = out.returncode
@@ -23,7 +30,8 @@ def select(prompt:str, options:list, rofi_args:list = [], fuzzy:bool = True):
 
 
     try:
-        index = [opt.strip() for opt in options].index(selected)
+        options = [opt.strip() for opt in options]
+        index = [selected in opt for opt in options].index(True)
     except ValueError:
         log.error(f"{selected} is not an option")
         index = -1

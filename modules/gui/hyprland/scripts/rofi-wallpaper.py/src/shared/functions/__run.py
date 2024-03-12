@@ -1,8 +1,8 @@
 import logging,subprocess
 log = logging.getLogger(__name__)
 
-def __run(args:list or str,background:bool = False):
-    if background:
+def __run(args:list or str,daemon:bool = False):
+    if daemon:
         subprocess.Popen(
             args, 
             stdout=subprocess.DEVNULL,

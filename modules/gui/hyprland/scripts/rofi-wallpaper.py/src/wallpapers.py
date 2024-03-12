@@ -10,9 +10,9 @@ def wallpapers(directory:str):
 
     files = os.listdir(path=directory)
     valid_formats_re = "|".join(valid_formats)
-    wallpapers = (file for file in files if re.search(valid_formats_re,file))
+    wallpapers = [file for file in files if re.search(valid_formats_re,file)]
 
-    log.debug(f"{list(wallpapers)= }")
+    log.debug(f"{wallpapers= }")
     return wallpapers
     # for file in os.listdir(path=directory):
     #     for vformat in valid_formats:

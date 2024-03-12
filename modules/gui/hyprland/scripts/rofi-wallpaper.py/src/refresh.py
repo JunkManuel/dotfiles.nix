@@ -22,7 +22,7 @@ def refresh(process:str, daemon:str = None, daemon_opts:list = []):
     if daemon is None:
         daemon = process
     
-    log.debug(f"{process= :>10}{daemon= :>10}")
+    log.debug(f"{process= :<10}{daemon= :<10}")
     log.debug(f"{daemon_opts= }")
 
     # Build arguments
@@ -38,7 +38,7 @@ def refresh(process:str, daemon:str = None, daemon_opts:list = []):
     code = __run(pgrep).returncode
     if code == 0:
         __run(pkill)
-    __run(daemon,background=True)
+    __run(daemon,daemon=True)
 
     # try:
     #     __run(args_kill)

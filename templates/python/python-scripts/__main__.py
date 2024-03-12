@@ -11,8 +11,7 @@
 #   logging -> https://docs.python.org/es/3/library/logging.html
 
 import os,sys,argparse,logging
-from src.functions import \
-        _random_name
+import src.shared.functions as f
 
 parser = argparse.ArgumentParser (
     prog= "Basic Script",
@@ -22,7 +21,7 @@ parser = argparse.ArgumentParser (
 
 parser.add_argument(
     'filename',                         # positional argument
-    default=_random_name(),
+    default=f.random_name(),
     nargs = "?"
 )
 # parser.add_argument('-c', '--count')    # option that takes a value

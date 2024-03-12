@@ -11,18 +11,17 @@
 #   logging -> https://docs.python.org/es/3/library/logging.html
 
 import os,sys,argparse,logging
-from src.functions import \
-        _random_name
+import src.shared.functions as f
 
 parser = argparse.ArgumentParser (
-    prog= "Basic Script",
-    description= "Does Something",
-    epilog= "Some necesary info for the program"
+    prog= "rofi-wallapaper",
+    description= "shows an interactiave menu to select a wallpaper and apply a colorscheme based on that wallpaper",
+    epilog= "si lees esto sos jei"
 )
 
 parser.add_argument(
     'filename',                         # positional argument
-    default=_random_name(),
+    default=f.random_name(),
     nargs = "?"
 )
 # parser.add_argument('-c', '--count')    # option that takes a value

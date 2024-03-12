@@ -19,12 +19,6 @@ parser = argparse.ArgumentParser (
     epilog= "si lees esto sos jei"
 )
 
-parser.add_argument(
-    'filename',                         # positional argument
-    default=f.random_name(),
-    nargs = "?"
-)
-# parser.add_argument('-c', '--count')    # option that takes a value
 group_loglvl = parser.add_mutually_exclusive_group()
 group_loglvl.add_argument(
     '-v', '--verbose',                  # on/off flag
@@ -69,9 +63,11 @@ log = logging.getLogger(name=__name__)
 
 import src.rofi as rofi
 import src.refresh as rf
+import src.wallpapers as wl
 
-code,i,res= rofi.select(prompt="sel",options=["12,123","añsdjf","añsdjf"])
-if i != -1:
-    log.info(res)
-
-rf("dunst")
+# code,i,res= rofi.select(prompt="sel",options=["12,123","añsdjf","añsdjf"])
+# if i != -1:
+#     log.info(res)
+#
+# rf("dunst")
+wl("/home/kiramanolo/.config/nixos/pics/")

@@ -20,13 +20,18 @@ parser = argparse.ArgumentParser (
 )
 
 parser.add_argument(
-    'filename',                         # positional argument
-    default=f.random_name(),
-    nargs = "?"
-)
-# parser.add_argument('-c', '--count')    # option that takes a value
-parser.add_argument(
     '-v', '--verbose',                  # on/off flag
+    action='store_true'
+)
+
+
+group_loglvl = parser.add_mutually_exclusive_group()
+group_loglvl.add_argument(
+    '-v', '--verbose',                  # on/off flag
+    action='store_true'
+)
+group_loglvl.add_argument(
+    '-q', '--quiet',
     action='store_true'
 )
 
@@ -35,8 +40,10 @@ args = parser.parse_args()
 # args.filename, args.count, args.verbose
 
 log_level= logging.INFO
-if args.verbose :
+if args.verbose:
     log_level= logging.DEBUG
+if args.quiet:
+    log_level= logging.FATAL
 
 logging.basicConfig(
     # format="%(asctime)s [%(levelname)s] %(msg)s",

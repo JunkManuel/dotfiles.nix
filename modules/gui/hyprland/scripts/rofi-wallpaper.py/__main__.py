@@ -64,10 +64,12 @@ log = logging.getLogger(name=__name__)
 import src.rofi as rofi
 import src.refresh as rf
 import src.wallpapers as wl
+import src.setwallpaper as stw
 
 # code,i,res= rofi.select(prompt="sel",options=["12,123","añsdjf","añsdjf"])
 # if i != -1:
 #     log.info(res)
 #
 # rf("dunst")
-wl("/home/kiramanolo/.config/nixos/pics/")
+# wl("/home/kiramanolo/.config/nixos/pics/")
+stw("/home/kiramanolo/.config/nixos/pics/wallpaper.png")

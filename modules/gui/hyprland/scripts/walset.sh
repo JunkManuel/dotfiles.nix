@@ -5,7 +5,7 @@ refresh() {
 
 	# restart dunst
 	# systemctl --user restart dunst
-    pkill dunst
+    pkill -9 dunst
     dunst &
 
 	# Update wallpaper on rofi configs

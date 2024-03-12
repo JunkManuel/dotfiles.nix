@@ -7,7 +7,7 @@ def select(prompt:str, options:list, rofi_args:list = [], fuzzy:bool = True):
     args = ["rofi", "-markup"]
     if fuzzy:
         args += ["-matching", "fuzzy"]
-    args += ["-dmenu", "-p", prompt, "-format", "s", "-i"]
+    args += ["-dmenu", "-p", prompt, "-i"]
     args += rofi_args
     args += [str(arg) for arg in args]
 

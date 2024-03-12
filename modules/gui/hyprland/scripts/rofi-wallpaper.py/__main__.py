@@ -68,7 +68,10 @@ log = logging.getLogger(name=__name__)
 ##################################################
 
 import src.rofi as rofi
+import src.refresh as rf
 
 code,i,res= rofi.select(prompt="sel",options=["12,123","añsdjf","añsdjf"])
 if i != -1:
     log.info(res)
+
+rf("dunst")

@@ -72,6 +72,7 @@ log = logging.getLogger(name=__name__)
 ###########     END of Template      #############
 ##################################################
 
+import random
 import src.rofi as rofi
 import src.refresh as rf
 import src.wallpapers as wl
@@ -88,7 +89,9 @@ env = os.environ
 # stw("/home/kiramanolo/.config/nixos/pics/wallpaper.png")
 
 def menu(dir):
-    return [f"{image}\x00icon\x1f{dir}/{image}" for image in wl(dir)]
+    images = [f"{image}\x00icon\x1f{dir}/{image}" for image in wl(dir)]
+    images += ["random"]
+    return images
 
 def rofi_theme(theme:str = args.theme):
 
@@ -130,6 +133,9 @@ if selection[1] == -1:
     log.critical("selection is not valid")
     exit(1)
     
-if selection[2]: stw(f"{get_dir()}/{selection[2]}")
+if selection[2] == "random":
+    stw(f"{get_dir()}/{random.choice(wl(get_dir()))}")
+
+elif selection[2]: stw(f"{get_dir()}/{selection[2]}")
 
 rf(process="dunst")

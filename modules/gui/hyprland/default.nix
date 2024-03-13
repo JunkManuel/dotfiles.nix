@@ -14,12 +14,12 @@ in {
         home.file = {
             ".config/hypr/hyprland.conf" = {
                 source = ./hyprland.conf;
-                onChange = "hyprctl reload";
+                # onChange = "hyprctl reload";
             };
             ".config/hypr/hyprpaper.conf".source = ./hyprpaper.conf;
             ".config/hypr/scripts" = {
                 source = ./scripts;
-                onChange = "hyprctl reload";
+                # onChange = "hyprctl reload";
                 recursive = true;
                 executable = true;
             };

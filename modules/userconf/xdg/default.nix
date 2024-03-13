@@ -26,6 +26,14 @@ in {
                 name = "Foot Server";
                 noDisplay = true;
             };
+            "hakuneko-desktop" = {
+                categories = [ "Network" "FileTransfer" ];
+                genericName = "Manga & Anime Downloader";
+                name = "Hakuneko";
+                exec = "hakuneko --no-sandbox";
+                icon = "hakuneko-desktop";
+                type = "Application";
+            };
         };
     };
 }

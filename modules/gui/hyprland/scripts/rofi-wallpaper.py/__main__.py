@@ -116,8 +116,6 @@ def get_dir(dir:str = args.directory):
     log.debug(f"{dir= }")
     return dir
 
-if not __run(["pidof","hyprpaper"]).returncode:
-    __run(["hyprpaper"],daemon=True)
 
 selection = rofi.select(
     prompt="Select Wallpaper",
@@ -125,10 +123,13 @@ selection = rofi.select(
     rofi_args=rofi_theme())
 log.debug(f"{selection= }")
 
+if __run(["pidof","hyprpaper"]).returncode != 0:
+    __run(["hyprpaper"],daemon=True)
+
 if selection[1] == -1:
     log.critical("selection is not valid")
     exit(1)
-
     
-stw(f"{get_dir()}/{selection[2]}")
+if selection[2]: stw(f"{get_dir()}/{selection[2]}")
+
 rf(process="dunst")

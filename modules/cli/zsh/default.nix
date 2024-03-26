@@ -17,7 +17,7 @@ in {
 
             enableCompletion = true;
             # enableAutosuggestions = true;
-            autosuggestions.enable = true;
+            autosuggestion.enable = true;
             syntaxHighlighting.enable = true;
 
             # .zshrc

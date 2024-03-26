@@ -83,7 +83,10 @@ vim.cmd[[au BufRead * lua docker_fix()]]
 -- Nix language server
 -------------------------
 -- lspconfig.nixd.setup {}
-lspconfig.rnix.setup{
+-- lspconfig.rnix.setup{
+--     capabilities = capabilities
+-- }
+lspconfig.nil_ls.setup{
     capabilities = capabilities
 }
 

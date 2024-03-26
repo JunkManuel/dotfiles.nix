@@ -1,0 +1,68 @@
+;; Variables
+(deflisten workspaces :initial "[]" "bash ~/.config/eww/scripts/get-workspaces")
+(deflisten current_workspace :initial "1" "bash ~/.config/eww/scripts/get-active-workspace")
+(deflisten window :initial "..." "sh ~/.config/eww/scripts/get-window-title")
+
+(defwidget bar[]
+    (centerbox :orientation "h"
+        (workspaces)
+        (bright)
+        (window_w)
+    )
+)
+
+(defwidget workspaces []
+    (eventbox :onscroll "bash ~/.config/eww/scripts/change-active-workspace {} ${current_workspace}" :class "workspaces-widget"
+        (box 
+        :space-evenly true
+        :spacing 2
+            (label :text "${workspaces}${current_workspace}" :visible false)
+            (for workspace in workspaces
+                (eventbox :onclick "hyprctl dispatch workspace ${workspace.id}"
+                    (box :class "workspace-entry ${workspace.id == current_workspace ? "current" : ""} ${workspace.windows > 0 ? "occupied" : "empty"}"
+                        (label :text "${workspace.id}")
+                    )
+                )
+            )
+        )
+    )
+)
+
+
+(defwidget window_w []
+  (box
+    (label :text "${window}")
+  )
+)
+
+
+(defwidget bright []
+  (box :class "brightness"
+       :orientation "h"
+       :space-evenly false
+       :halign "end"
+       :spacing 10
+    ;; (button
+        ;;     :class ""
+        ;;  :onclick "scripts/brightnesscontrol down"
+        ;;  :onrightclick "scripts/brightnesscontrol up"
+    ;;     brightness)
+))
+
+(defwindow bar 
+    :monitor 0
+    :geometry (
+        geometry
+            :x "0%"
+            :y "0%"
+            :width "90%"
+            :height "10px"
+            :anchor "top center"
+    )
+    :windowtype "dock"
+    :stacking "overlay"
+    ;; :namespace "overlay"
+    :exclusive: true
+    :focuseable true
+    (bar)
+)

@@ -16,7 +16,8 @@ in {
             dotDir = ".config/zsh";
 
             enableCompletion = true;
-            enableAutosuggestions = true;
+            # enableAutosuggestions = true;
+            autosuggestions.enable = true;
             syntaxHighlighting.enable = true;
 
             # .zshrc

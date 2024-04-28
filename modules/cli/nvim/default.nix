@@ -23,7 +23,7 @@ in {
         };
         
         home.packages = with pkgs; [
-            nil nixfmt # rnix-lsp Nix
+            nil nixfmt-classic # rnix-lsp Nix
             lua-language-server stylua # Lua
             python3Packages.jedi-language-server # python
             nodePackages.vim-language-server # vimscript

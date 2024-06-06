@@ -19,7 +19,7 @@ in {
                     IdentityFile        ~/.ssh/id_ed25519_oracle
                     IdentitiesOnly      yes
                 Host 144.24.201.50
-                    Hostname            kiramanolo.ddns.net
+                    Hostname            144.24.201.50
                     IdentityFile        ~/.ssh/id_ed25519_oracle
                     IdentitiesOnly      yes
                 '';
